@@ -1,2 +1,2 @@
 # images
-Collection of container images.
+Collection of container images for deploying gameservers.

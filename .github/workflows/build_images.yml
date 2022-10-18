@@ -1,0 +1,29 @@
+name: Build Image
+
+on:
+  push:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+
+  tf2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login to Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: cd team_fortress_2 docker build -t ghcr.io/comfymp/teamfortress2 -f ./Dockerfile .
+
+      - name: Push to package
+        run: docker push ghcr.io/comfymp/teamfortress2
