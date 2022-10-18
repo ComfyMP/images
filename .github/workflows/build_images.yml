@@ -1,7 +1,8 @@
 name: Build Image
 
 on:
-  push:
+  #push:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -23,7 +24,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: cd team_fortress_2 && docker build -t ghcr.io/comfymp/teamfortress2 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
 
       - name: Push to package
         run: docker push ghcr.io/comfymp/teamfortress2

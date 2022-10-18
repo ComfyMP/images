@@ -20,4 +20,4 @@ RUN tar zxf steamcmd_linux.tar.gz
 RUN bash ./steamcmd.sh +force_install_dir "/home/server" +login anonymous +app_update 232250 +quit
 
 WORKDIR /home/server
-ENTRYPOINT ./srcds_run -game tf -console -usercon -secure -steam_dir /home/server
+ENTRYPOINT ./srcds_run -game tf -console -usercon -secure
