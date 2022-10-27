@@ -61,7 +61,7 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
 
       - name: Build Docker image
-        run: cd tf2 && docker build -t beepsterr/tf2 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd steamcmd/tf2 && docker build -t beepsterr/tf2 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
 
       - name: Push to package
         run: docker push beepsterr/tf2
@@ -83,7 +83,7 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
 
       - name: Build Docker image
-        run: cd csgo && docker build -t beepsterr/csgo --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd steamcmd/csgo && docker build -t beepsterr/csgo --platform=linux/amd64 --progress=plain -f ./Dockerfile .
 
       - name: Push to package
         run: docker push beepsterr/csgo
