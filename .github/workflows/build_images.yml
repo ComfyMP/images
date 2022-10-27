@@ -94,6 +94,9 @@ jobs:
   minecraft:
     runs-on: [self-hosted, linux]
     needs: proxy
+    steps:
+      - name: Finish
+        run: echo "Hi"
 
   spigot_1-19:
     runs-on: [self-hosted, linux]
