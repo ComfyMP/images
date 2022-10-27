@@ -238,7 +238,7 @@ jobs:
 
   cleanup:
     runs-on: [self-hosted, linux]
-    needs: [tf2, csgo]
+    needs: [tf2, csgo, spigot_1-19, spigot_1-18, spigot_1-17, spigot_1-16, spigot_1-15, spigot_1-14, spigot_1-13, spigot_1-12]
     if: always()
     steps:
       - name: Cleanup
