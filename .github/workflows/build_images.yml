@@ -92,7 +92,7 @@ jobs:
         run: docker image rm beepsterr/csgo
 
 
-  spigot_1.19:
+  spigot_1-19:
     runs-on: [self-hosted, linux]
     needs: proxy
     steps:
@@ -110,7 +110,7 @@ jobs:
       - name: Remove Image
         run: docker image rm beepsterr/spigot:1.19
 
-  spigot_1.18:
+  spigot_1-18:
     runs-on: [self-hosted, linux]
     needs: proxy
     steps:
@@ -127,7 +127,7 @@ jobs:
         run: docker push beepsterr/spigot:1.18
       - name: Remove Image
         run: docker image rm beepsterr/spigot:1.18
-  spigot_1.17:
+  spigot_1-17:
     runs-on: [self-hosted, linux]
     needs: proxy
     steps:
@@ -144,7 +144,7 @@ jobs:
         run: docker push beepsterr/spigot:1.17
       - name: Remove Image
         run: docker image rm beepsterr/spigot:1.17
-  spigot_1.16:
+  spigot_1-16:
     runs-on: [self-hosted, linux]
     needs: proxy
     steps:
@@ -161,7 +161,7 @@ jobs:
         run: docker push beepsterr/spigot:1.16
       - name: Remove Image
         run: docker image rm beepsterr/spigot:1.16
-  spigot_1.15:
+  spigot_1-15:
     runs-on: [self-hosted, linux]
     needs: proxy
     steps:
@@ -178,7 +178,7 @@ jobs:
         run: docker push beepsterr/spigot:1.15
       - name: Remove Image
         run: docker image rm beepsterr/spigot:1.15
-  spigot_1.14:
+  spigot_1-14:
     runs-on: [self-hosted, linux]
     needs: proxy
     steps:
@@ -195,7 +195,7 @@ jobs:
         run: docker push beepsterr/spigot:1.14
       - name: Remove Image
         run: docker image rm beepsterr/spigot:1.14
-  spigot_1.13:
+  spigot_1-13:
     runs-on: [self-hosted, linux]
     needs: proxy
     steps:
@@ -212,7 +212,7 @@ jobs:
         run: docker push beepsterr/spigot:1.13
       - name: Remove Image
         run: docker image rm beepsterr/spigot:1.13
-  spigot_1.12:
+  spigot_1-12:
     runs-on: [self-hosted, linux]
     needs: proxy
     steps:
