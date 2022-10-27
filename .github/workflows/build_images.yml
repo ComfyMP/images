@@ -91,6 +91,145 @@ jobs:
       - name: Remove Image
         run: docker image rm beepsterr/csgo
 
+
+  spigot-1.19:
+    runs-on: [self-hosted, linux]
+    needs: proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd csgo && docker build -t beepsterr/spigot:1.19 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.19
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.19
+
+  spigot-1.18:
+    runs-on: [self-hosted, linux]
+    needs: proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd csgo && docker build -t beepsterr/spigot:1.18 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.18
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.18
+  spigot-1.17:
+    runs-on: [self-hosted, linux]
+    needs: proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd csgo && docker build -t beepsterr/spigot:1.17 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.17
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.17
+  spigot-1.16:
+    runs-on: [self-hosted, linux]
+    needs: proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd csgo && docker build -t beepsterr/spigot:1.16 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.16
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.16
+  spigot-1.15:
+    runs-on: [self-hosted, linux]
+    needs: proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd csgo && docker build -t beepsterr/spigot:1.15 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.15
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.15
+  spigot-1.14:
+    runs-on: [self-hosted, linux]
+    needs: proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd csgo && docker build -t beepsterr/spigot:1.14 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.14
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.14
+  spigot-1.13:
+    runs-on: [self-hosted, linux]
+    needs: proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd csgo && docker build -t beepsterr/spigot:1.13 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.13
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.13
+  spigot-1.12:
+    runs-on: [self-hosted, linux]
+    needs: proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd csgo && docker build -t beepsterr/spigot:1.12 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.12
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.12
+
   cleanup:
     runs-on: [self-hosted, linux]
     needs: [tf2, csgo]
