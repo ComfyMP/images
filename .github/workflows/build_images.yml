@@ -145,7 +145,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PAT }}
       - name: Build Docker image
-        run: minecraft/spigot/1.17 && docker build -t beepsterr/spigot:1.17 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd minecraft/spigot/1.17 && docker build -t beepsterr/spigot:1.17 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
       - name: Push to package
         run: docker push beepsterr/spigot:1.17
       - name: Remove Image
@@ -162,7 +162,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PAT }}
       - name: Build Docker image
-        run: minecraft/spigot/1.16 && docker build -t beepsterr/spigot:1.16 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd minecraft/spigot/1.16 && docker build -t beepsterr/spigot:1.16 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
       - name: Push to package
         run: docker push beepsterr/spigot:1.16
       - name: Remove Image
@@ -179,7 +179,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PAT }}
       - name: Build Docker image
-        run: minecraft/spigot/1.15 && docker build -t beepsterr/spigot:1.15 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd minecraft/spigot/1.15 && docker build -t beepsterr/spigot:1.15 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
       - name: Push to package
         run: docker push beepsterr/spigot:1.15
       - name: Remove Image
@@ -196,7 +196,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PAT }}
       - name: Build Docker image
-        run: minecraft/spigot/1.14 && docker build -t beepsterr/spigot:1.14 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd minecraft/spigot/1.14 && docker build -t beepsterr/spigot:1.14 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
       - name: Push to package
         run: docker push beepsterr/spigot:1.14
       - name: Remove Image
@@ -213,7 +213,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PAT }}
       - name: Build Docker image
-        run: minecraft/spigot/1.13 && docker build -t beepsterr/spigot:1.13 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd minecraft/spigot/1.13 && docker build -t beepsterr/spigot:1.13 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
       - name: Push to package
         run: docker push beepsterr/spigot:1.13
       - name: Remove Image
@@ -230,7 +230,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PAT }}
       - name: Build Docker image
-        run: minecraft/spigot/1.12 && docker build -t beepsterr/spigot:1.12 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd minecraft/spigot/1.12 && docker build -t beepsterr/spigot:1.12 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
       - name: Push to package
         run: docker push beepsterr/spigot:1.12
       - name: Remove Image
