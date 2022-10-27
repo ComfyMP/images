@@ -66,6 +66,9 @@ jobs:
       - name: Push to package
         run: docker push beepsterr/tf2
 
+      - name: Remove Image
+        run: docker image rm beepsterr/tf2
+
   csgo:
     runs-on: [self-hosted, linux]
     needs: steamcmd
@@ -84,3 +87,14 @@ jobs:
 
       - name: Push to package
         run: docker push beepsterr/csgo
+
+      - name: Remove Image
+        run: docker image rm beepsterr/csgo
+
+  cleanup:
+    runs-on: [self-hosted, linux]
+    needs: [tf2, csgo]
+    if: always()
+    steps:
+      - name: Cleanup
+        run: docker image prune -a -f && docker volume prune -f
