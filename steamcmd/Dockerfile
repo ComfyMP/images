@@ -17,3 +17,6 @@ RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 
 # Install steamcmd
 RUN tar zxf steamcmd_linux.tar.gz
+
+USER ${USER}
+RUN mkdir -p /home/server
