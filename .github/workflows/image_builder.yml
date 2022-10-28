@@ -1,24 +1,24 @@
-name: Update Images
+name: Build Images
 
 on:
+  #push:
   workflow_dispatch:
 
-#inputs:
-#  tf2:
-#    type: boolean
-#    description: 'Update TF2 image'
-#  csgo:
-#    type: boolean
-#    description: 'Update CSGO image'
-#  proxy:
-#    type: boolean
-#    description: 'Update Proxy image'
-#  mc_119:
-#    type: boolean
-#    description: 'Update 1.19 Minecraft images'
-
+permissions:
+  contents: read
+  packages: write
 
 jobs:
 
+  cleanup:
+    runs-on: [self-hosted, linux]
+    needs:
+    if: always()
+    steps:
+      - name: Cleanup
+        run: docker image prune -a -f && docker volume prune -f
+
   proxy:
-    uses: ComfyMP/images/.github/workflows/build_proxy.yml@main
+    runs-on: [self-hosted, linux]
+    steps:
+      uses: ComfyMP/images/.github/workflows/build_proxy.yml@main
