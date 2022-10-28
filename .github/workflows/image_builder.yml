@@ -19,3 +19,4 @@ jobs:
 
   proxy:
     uses: ./.github/workflows/build_proxy.yml
+    secrets: inherit
