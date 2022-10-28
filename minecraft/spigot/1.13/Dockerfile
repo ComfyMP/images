@@ -6,6 +6,6 @@ RUN apt-get update -y && apt-get install -y wget git
 RUN mkdir -p /home/server
 WORKDIR /home/server
 RUN wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
-RUN java -jar BuildTools.jar --rev 1.13
+RUN java -jar BuildTools.jar --rev 1.13.2
 
-ENTRYPOINT java -Xms${XMS:-1G} -Xmx${XMX:-1G} -jar spigot-1.13.jar nogui
+ENTRYPOINT java -Xms${XMS:-1G} -Xmx${XMX:-1G} -jar spigot-1.13.2.jar nogui
