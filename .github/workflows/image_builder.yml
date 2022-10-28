@@ -19,6 +19,4 @@ jobs:
         run: docker image prune -a -f && docker volume prune -f
 
   proxy:
-    runs-on: [self-hosted, linux]
-    steps:
-      - uses: ComfyMP/images/.github/workflows/build_proxy.yml@main
+    uses: ComfyMP/images/.github/workflows/build_proxy.yml@main
