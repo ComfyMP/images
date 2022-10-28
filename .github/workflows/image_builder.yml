@@ -21,4 +21,4 @@ jobs:
   proxy:
     runs-on: [self-hosted, linux]
     steps:
-      uses: ComfyMP/images/.github/workflows/build_proxy.yml@main
+      - uses: ComfyMP/images/.github/workflows/build_proxy.yml@main
