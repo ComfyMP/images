@@ -12,7 +12,6 @@ jobs:
 
   cleanup:
     runs-on: [self-hosted, linux]
-    needs:
     if: always()
     steps:
       - name: Cleanup
