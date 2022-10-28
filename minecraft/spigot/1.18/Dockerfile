@@ -1,4 +1,4 @@
-FROM openjdk:16-slim
+FROM openjdk:17-slim
 
 RUN apt-get update -y && apt-get install -y wget git
 
