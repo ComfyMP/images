@@ -21,4 +21,4 @@ on:
 jobs:
 
   proxy:
-    uses: ./.github/workflows/build_proxy.yml
+    uses: ComfyMP/images/.github/workflows/build_proxy.yml@main
