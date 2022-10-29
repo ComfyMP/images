@@ -31,12 +31,20 @@ permissions:
 
 jobs:
 
+  cleanup:
+    runs-on: [self-hosted, linux]
+    if: always()
+    steps:
+      - name: Cleanup
+        run: docker image prune -a -f && docker volume prune -f
   proxy:
+    needs: [cleanup]
     if: github.event.inputs.build_proxy == 'true'
     uses: ./.github/workflows/build_proxy.yml
     secrets: inherit
 
   steamcmd:
+    needs: [cleanup]
     if: github.event.inputs.build_tf2 == 'true' || github.event.inputs.build_csgo == 'true'
     uses: ./.github/workflows/build_steamcmd.yml
     secrets: inherit
@@ -48,6 +56,7 @@ jobs:
     secrets: inherit
 
   java:
+    needs: [cleanup]
     if: github.event.inputs.build_mc_latest == 'true' || github.event.inputs.build_mc_old == 'true'
     uses: ./.github/workflows/build_java.yml
     secrets: inherit
@@ -63,11 +72,3 @@ jobs:
     needs: java
     uses: ./.github/workflows/build_minecraft_1.18.yml
     secrets: inherit
-
-  cleanup:
-    runs-on: [self-hosted, linux]
-    needs: [proxy, steamcmd, java]
-    if: always()
-    steps:
-      - name: Cleanup
-        run: docker image prune -a -f && docker volume prune -f
