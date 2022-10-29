@@ -3,6 +3,15 @@ name: Build Images
 on:
   #push:
   workflow_dispatch:
+    inputs:
+      build_proxy:
+        description: 'Proxy Server'
+        type: boolean
+        default: false
+      build_steamcmd:
+        description: 'Update SteamCMD Image'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -10,13 +19,18 @@ permissions:
 
 jobs:
 
+  proxy:
+    uses: ./.github/workflows/build_proxy.yml
+    secrets: inherit
+
+  steamcmd:
+    uses: ./.github/workflows/build_steamcmd.yml
+    secrets: inherit
+
   cleanup:
     runs-on: [self-hosted, linux]
+    needs: [proxy, steamcmd]
     if: always()
     steps:
       - name: Cleanup
         run: docker image prune -a -f && docker volume prune -f
-
-  proxy:
-    uses: ./.github/workflows/build_proxy.yml
-    secrets: inherit
