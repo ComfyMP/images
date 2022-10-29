@@ -12,3 +12,18 @@ jobs:
     needs: []
     uses: ./.github/workflows/build_java_jre17.yml
     secrets: inherit
+
+#  jre16:
+#    needs: []
+#    uses: ./.github/workflows/build_java_jre17.yml
+#    secrets: inherit
+#
+#  jre11:
+#    needs: [ ]
+#    uses: ./.github/workflows/build_java_jre17.yml
+#    secrets: inherit
+#
+#  jre18:
+#    needs: []
+#    uses: ./.github/workflows/build_java_jre17.yml
+#    secrets: inherit

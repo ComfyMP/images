@@ -5,11 +5,19 @@ on:
   workflow_dispatch:
     inputs:
       build_proxy:
-        description: 'Proxy Server'
+        description: 'Update Proxy Server'
         type: boolean
         default: false
-      build_steamcmd:
-        description: 'Update SteamCMD Image'
+      build_tf2:
+        description: 'Update Team Fortress 2'
+        type: boolean
+        default: false
+      build_mc_latest:
+        description: 'Update Minecraft (Current Version)'
+        type: boolean
+        default: false
+      build_mc_old:
+        description: 'Update Minecraft (Previous Versions)'
         type: boolean
         default: false
 
@@ -27,19 +35,14 @@ jobs:
     uses: ./.github/workflows/build_steamcmd.yml
     secrets: inherit
 
-  tf2:
-    needs: [steamcmd]
-    uses: ./.github/workflows/build_steamcmd.yml
-    secrets: inherit
-
   java:
-    needs: []
-    uses: ./.github/workflows/build_steamcmd.yml
+    needs:
+    uses: ./.github/workflows/build_java.yml
     secrets: inherit
 
   cleanup:
     runs-on: [self-hosted, linux]
-    needs: [proxy, steamcmd]
+    needs: [proxy, steamcmd, java]
     if: always()
     steps:
       - name: Cleanup
