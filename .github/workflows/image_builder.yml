@@ -12,6 +12,10 @@ on:
         description: 'Update Team Fortress 2'
         type: boolean
         default: false
+      build_csgo:
+        description: 'Update Counter Strike: Global Offensive'
+        type: boolean
+        default: false
       build_mc_latest:
         description: 'Update Minecraft (Current Version)'
         type: boolean
@@ -28,10 +32,12 @@ permissions:
 jobs:
 
   proxy:
+    if: inputs.build_proxy == 'true'
     uses: ./.github/workflows/build_proxy.yml
     secrets: inherit
 
   steamcmd:
+    if: inputs.build_tf2 == 'true' || inputs.build_csgo == 'true'
     uses: ./.github/workflows/build_steamcmd.yml
     secrets: inherit
 
@@ -42,6 +48,7 @@ jobs:
     secrets: inherit
 
   java:
+    if: inputs.build_mc_latest == 'true' || inputs.build_mc_old == 'true'
     uses: ./.github/workflows/build_java.yml
     secrets: inherit
 
