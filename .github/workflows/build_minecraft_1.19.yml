@@ -1,0 +1,30 @@
+on:
+  workflow_call:
+    secrets:
+      DOCKER_USERNAME:
+        required: true
+      DOCKER_PAT:
+        required: true
+
+jobs:
+
+  spigot:
+    runs-on: [self-hosted, linux]
+    needs: minecraft
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PAT }}
+      - name: Build Docker image
+        run: cd minecraft/spigot/1.19 && docker build -t beepsterr/spigot:1.19 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+      - name: Push to package
+        run: docker push beepsterr/spigot:1.19
+      - name: Remove Image
+        run: docker image rm beepsterr/spigot:1.19
+
+      - name: Push to package
+        run: docker push beepsterr/jre:17
