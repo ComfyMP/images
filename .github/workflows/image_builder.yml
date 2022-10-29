@@ -39,6 +39,16 @@ jobs:
     uses: ./.github/workflows/build_java.yml
     secrets: inherit
 
+  minecraft_119:
+    needs: java
+    uses: ./.github/workflows/build_minecraft_1.19.yml
+    secrets: inherit
+
+  minecraft_118:
+    needs: java
+    uses: ./.github/workflows/build_minecraft_1.18.yml
+    secrets: inherit
+
   cleanup:
     runs-on: [self-hosted, linux]
     needs: [proxy, steamcmd, java]

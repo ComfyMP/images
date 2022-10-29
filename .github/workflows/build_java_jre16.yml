@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  jre17:
+  jre16:
     runs-on: [self-hosted, linux]
     steps:
       - name: Checkout
