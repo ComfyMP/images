@@ -35,17 +35,25 @@ jobs:
     uses: ./.github/workflows/build_steamcmd.yml
     secrets: inherit
 
+  tf2:
+    if: inputs.build_tf2 == 'true'
+    needs: steamcmd
+    uses: ./.github/workflows/build_steam_tf2.yml
+    secrets: inherit
+
   java:
     uses: ./.github/workflows/build_java.yml
     secrets: inherit
 
   minecraft_119:
-    needs: java
+    if: inputs.build_mc_latest == 'true'
+    needs: jre17
     uses: ./.github/workflows/build_minecraft_1.19.yml
     secrets: inherit
 
   minecraft_118:
-    needs: java
+    if: inputs.build_mc_old == 'true'
+    needs: jre16
     uses: ./.github/workflows/build_minecraft_1.18.yml
     secrets: inherit
 

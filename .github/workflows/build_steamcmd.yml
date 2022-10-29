@@ -25,8 +25,3 @@ jobs:
 
       - name: Push to package
         run: docker push beepsterr/steamcmd
-
-  tf2:
-    needs: [ steamcmd ]
-    uses: ./.github/workflows/build_steam_tf2.yml
-    secrets: inherit
