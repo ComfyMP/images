@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
 
       - name: Build Docker image
-        run: cd java/jre17 && docker build -t beepsterr/java:jre17 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
+        run: cd java/jre17/ && docker build -t beepsterr/jre:17 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
 
       - name: Push to package
-        run: docker push beepsterr/java:jre17
+        run: docker push beepsterr/jre:17
