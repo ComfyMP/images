@@ -1,0 +1,14 @@
+on:
+  workflow_call:
+    secrets:
+      DOCKER_USERNAME:
+        required: true
+      DOCKER_PAT:
+        required: true
+
+jobs:
+
+  jre17:
+    needs: []
+    uses: ./.github/workflows/build_java_jre17.yml
+    secrets: inherit

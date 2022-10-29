@@ -27,6 +27,16 @@ jobs:
     uses: ./.github/workflows/build_steamcmd.yml
     secrets: inherit
 
+  tf2:
+    needs: [steamcmd]
+    uses: ./.github/workflows/build_steamcmd.yml
+    secrets: inherit
+
+  java:
+    needs: []
+    uses: ./.github/workflows/build_steamcmd.yml
+    secrets: inherit
+
   cleanup:
     runs-on: [self-hosted, linux]
     needs: [proxy, steamcmd]
