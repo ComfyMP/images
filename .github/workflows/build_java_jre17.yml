@@ -24,4 +24,4 @@ jobs:
         run: cd java/jre17 && docker build -t beepsterr/java:jre17 --platform=linux/amd64 --progress=plain -f ./Dockerfile .
 
       - name: Push to package
-        run: docker push beepsterr/javaLjre17
+        run: docker push beepsterr/java:jre17
