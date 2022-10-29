@@ -9,6 +9,7 @@ on:
 jobs:
 
   tf2:
+    if: inputs.build_tf2 == 'true'
     runs-on: [self-hosted, linux]
     steps:
       - name: Checkout

@@ -10,7 +10,7 @@ jobs:
 
   spigot:
     runs-on: [self-hosted, linux]
-    needs: minecraft
+    needs: jre17
     steps:
       - name: Checkout
         uses: actions/checkout@v2
