@@ -32,34 +32,34 @@ permissions:
 jobs:
 
   proxy:
-    if: inputs.build_proxy == 'true'
+    if: github.event.inputs.build_proxy == 'true'
     uses: ./.github/workflows/build_proxy.yml
     secrets: inherit
 
   steamcmd:
-    if: inputs.build_tf2 == 'true' || inputs.build_csgo == 'true'
+    if: github.event.inputs.build_tf2 == 'true' || github.event.inputs.build_csgo == 'true'
     uses: ./.github/workflows/build_steamcmd.yml
     secrets: inherit
 
   tf2:
-    if: inputs.build_tf2 == 'true'
+    if: github.event.inputs.build_tf2 == 'true'
     needs: steamcmd
     uses: ./.github/workflows/build_steam_tf2.yml
     secrets: inherit
 
   java:
-    if: inputs.build_mc_latest == 'true' || inputs.build_mc_old == 'true'
+    if: github.event.inputs.build_mc_latest == 'true' || github.event.inputs.build_mc_old == 'true'
     uses: ./.github/workflows/build_java.yml
     secrets: inherit
 
   minecraft_119:
-    if: inputs.build_mc_latest == 'true'
+    if: github.event.inputs.build_mc_latest == 'true'
     needs: java
     uses: ./.github/workflows/build_minecraft_1.19.yml
     secrets: inherit
 
   minecraft_118:
-    if: inputs.build_mc_old == 'true'
+    if: github.event.inputs.build_mc_old == 'true'
     needs: java
     uses: ./.github/workflows/build_minecraft_1.18.yml
     secrets: inherit
